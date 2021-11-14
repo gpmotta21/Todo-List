@@ -1,0 +1,78 @@
+body,html{
+    margin: 0;
+    height: 100%;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aqua;
+    height: 50%;
+    width: 70%
+}
+
+#error{
+    flex: 10%;
+    opacity: 0;
+    cursor: default;
+    transition: all .5s ease-in;
+}
+
+#createTodo{
+    flex: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#createTodo input{
+    width: 70%;
+}
+
+#createTodo button{
+    width: 10%;
+}
+
+#todoList{
+    flex: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+
+.todos{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.todos button{
+    width: 15%;
+}
+
+.todos div{
+    width: 60%;
+    word-break: break-all;
+}
+
+.todos:first-child{
+    color: red;
+}
+
+.todos:last-child{
+    color: seagreen;
+}
+
+input [type="checkbox"]{
+    width: 100px;
+    height: 10em;
+}
