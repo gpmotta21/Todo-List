@@ -2,6 +2,24 @@ body,html{
     margin: 0;
     height: 100%;
     padding: 0;
+    font-family: 'Fira Code', monospace;
+    font-family: 'Ubuntu', sans-serif;
+    background: linear-gradient(to right, #c33764, #1d2671); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 body{
@@ -14,13 +32,12 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: aqua;
-    height: 50%;
-    width: 70%
+    height: 90%;
+    width: 70%;
 }
 
 #error{
-    flex: 10%;
+    flex: 5%;
     opacity: 0;
     cursor: default;
     transition: all .5s ease-in;
@@ -30,49 +47,104 @@ body{
     flex: 20%;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     width: 100%;
+    margin-bottom: 5px;
+    background-color: rgba(248, 212, 212, 0.3);
 }
 
 #createTodo input{
     width: 70%;
-}
-
-#createTodo button{
-    width: 10%;
+    height: 50%;
 }
 
 #todoList{
-    flex: 60%;
+    flex: 75%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     height: 100%;
     width: 100%;
+    margin-top: 5px;
+    gap: 10px;
+}
+
+#createTodo, .todos, input, button, button::before{
+    border-radius: 5px;
+    border: none;   
 }
 
 .todos{
     display: flex;
     justify-content: space-evenly;
-}
-
-.todos button{
-    width: 15%;
+    align-items: center;
+    height: 15%;
+    transition: all 1s ease-in-out;
+    opacity: 0;
+    background-color: rgba(248, 212, 212, 0.3);
+    overflow: hidden;
 }
 
 .todos div{
     width: 60%;
     word-break: break-all;
+    font-size: 2.6vmin
 }
 
-.todos:first-child{
-    color: red;
+input[type="text"]:focus{
+    outline: none;
+    box-shadow:  0 0 0 3px #ee6352,
+    0 0 0 4px #d45379,
+    0 0 0 5px #a4558f,
+    0 0 0 6px #6d588e,
+    0 0 0 7px #405378;
 }
 
-.todos:last-child{
-    color: seagreen;
+button{
+    width: 10%;
+    height: 50%;
+    position: relative;
+    z-index: 1;
+    }
+                
+    button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    background-color: rgba(90, 49, 236, 0.493);
+    transition: all .6s ease-in-out;
 }
 
-input [type="checkbox"]{
-    width: 100px;
-    height: 10em;
+button:hover::before{
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+    color: black ;
 }
+
+.todos, .checkBox, button{ cursor: pointer; }
+
+input[type="checkbox"]{
+    font: inherit;
+    height: 2em;
+    width: 2em;
+    accent-color: rgba(90, 49, 236, 0.493);
+}
+
+input[type="checkbox"]:checked + div{
+    text-decoration:line-through;
+}
+
+@media (max-width: 613px){
+    #container{
+        width: 90%;
+    }
+}
+
+
+
