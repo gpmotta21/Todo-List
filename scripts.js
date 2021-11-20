@@ -6,6 +6,11 @@ var error = document.querySelector('#error');
 const setItem = (db) => localStorage.setItem('todoList', JSON.stringify(db));
 const getItem = () => JSON.parse(localStorage.getItem('todoList')) ?? [];
 
+addEventListener("load", function() {
+    var viewport = document.querySelector("meta[name=viewport]");
+    viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);
+})
+
 function createTodo(text, status, index) {
     var newElement = document.createElement('label');
     newElement.classList.add('todos');
