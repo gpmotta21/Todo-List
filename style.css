@@ -108,6 +108,8 @@ button{
     width: 10%;
     height: 50%;
     position: relative;
+    font-size: 3vmin;
+    font-weight: 900;
     z-index: 1;
     }
                 
@@ -147,6 +149,10 @@ input[type="checkbox"]:checked + div{
 @media (max-width: 613px){
     #container{
         width: 90%;
+    }
+
+    input[type="checkbox"]{
+        width: .8em;
     }
 }
 
